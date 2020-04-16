@@ -1,0 +1,12 @@
+[package]
+name = "merlin-historical"
+version = "0.1.0"
+authors = ["Blessan Abraham <blessan.abraham@blippar.com>"]
+edition = "2018"
+
+[dependencies]
+config = { version = "0.10", features = ["json"] }
+log = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+
+merlin-core = { path = "../../core" }

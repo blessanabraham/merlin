@@ -1,0 +1,40 @@
+[package]
+name = "merlin"
+version = "0.1.0"
+authors = ["Blessan Abraham <blessan.abraham@blippar.com>"]
+edition = "2018"
+
+[workspace]
+members = [
+  "core",
+  "services/broker",
+  "services/coordinator",
+  "services/historical",
+  "services/middle-manager",
+  "services/overlord",
+  "services/router"
+]
+
+[dependencies]
+merlin-broker = { path = "./services/broker", optional = true }
+merlin-coordinator = { path = "./services/coordinator", optional = true }
+merlin-historical = { path = "./services/historical", optional = true }
+merlin-middle-manager = { path = "./services/middle-manager", optional = true }
+merlin-overlord = { path = "./services/overlord", optional = true }
+merlin-router = { path = "./services/router", optional = true }
+
+config = { version = "0.10", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+tokio = { version = "0.2", features = ["macros"] }
+
+[features]
+default = ["master", "query", "data"]
+master = ["coordinator", "overlord"]
+query = ["broker", "router"]
+data = ["historical", "middle-manager"]
+coordinator = ["merlin-coordinator"]
+overlord = ["merlin-overlord"]
+broker = ["merlin-broker"]
+router = ["merlin-router"]
+historical = ["merlin-historical"]
+middle-manager = ["merlin-middle-manager"]

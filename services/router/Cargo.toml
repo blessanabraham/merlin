@@ -1,0 +1,9 @@
+[package]
+name = "merlin-router"
+version = "0.1.0"
+authors = ["Blessan Abraham <blessan.abraham@blippar.com>"]
+edition = "2018"
+
+[dependencies]
+config = { version = "0.10", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
