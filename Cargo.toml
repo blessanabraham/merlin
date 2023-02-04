@@ -25,7 +25,7 @@ merlin-router = { path = "./services/router", optional = true }
 
 config = { version = "0.10", features = ["json"] }
 serde = { version = "1.0", features = ["derive"] }
-tokio = { version = "0.2", features = ["macros"] }
+tokio = { version = "1.13", features = ["macros"] }
 
 [features]
 default = ["master", "query", "data"]
